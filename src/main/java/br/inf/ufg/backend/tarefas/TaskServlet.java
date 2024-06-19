@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/tarefa")
-public class Tarefas extends HttpServlet {
+public class TaskServlet extends HttpServlet {
 
 	private List<String> lista = new ArrayList<>();
 
