@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Lista de Produtos</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
 </head>
 <body>
 <header>
@@ -28,7 +28,7 @@
     </tbody>
 </table>
 <div class="button-container">
-    <a href="/produtos/adicionar" class="button">Adicionar Novo Produto</a>
+    <a th:href="@{/produtos/adicionar}" class="button">Adicionar Novo Produto</a>
 </div>
 </body>
 </html>

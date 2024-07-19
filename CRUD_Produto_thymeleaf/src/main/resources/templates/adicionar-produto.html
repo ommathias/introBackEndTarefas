@@ -2,13 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Adicionar Produto</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
 </head>
 <body>
 <header>
     <h1>Adicionar Produto</h1>
 </header>
-<form action="/produtos" method="post">
+<form th:action="@{/produtos}" method="post">
     <div>
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome">

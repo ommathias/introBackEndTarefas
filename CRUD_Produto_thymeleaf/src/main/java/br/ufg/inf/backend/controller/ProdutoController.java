@@ -27,8 +27,7 @@ public class ProdutoController {
     }
 
     @PostMapping("/produtos")
-    public String adicionarProduto(@RequestParam String nome, @RequestParam double preco,
-                                   RedirectAttributes redirectAttributes) {
+    public String adicionarProduto(@RequestParam String nome, @RequestParam double preco, RedirectAttributes redirectAttributes) {
         Produto produto = new Produto();
         produto.setNome(nome);
         produto.setPreco(preco);
