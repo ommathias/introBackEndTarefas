@@ -1,5 +1,4 @@
 /* styles.css */
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -78,9 +77,8 @@ form label {
     font-weight: bold;
 }
 
-form input[type="text"],
-form input[type="number"],
-form input[type="submit"] {
+form input[type="text"], form input[type="number"], form input[type="submit"]
+{
     width: calc(100% - 20px);
     padding: 10px;
     margin: 5px 0;
@@ -99,9 +97,9 @@ form button {
     cursor: pointer;
 }
 
-form button:hover {
-    background-color: #555;
-}
+/* form button:hover, form .editar:hover {
+	background-color: #555;
+} */
 
 .success-message {
     width: 50%;
@@ -117,4 +115,28 @@ form button:hover {
 .button-container {
     text-align: center;
     margin: 20px;
+}
+
+.delete-link {
+    background: url('/icons/delete-icon.png') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    width: 20px; /* largura do botão */
+    height: 20px; /* altura do botão */
+    margin: 5px;
+    padding: 0;
+    outline: none;
+    display: inline;
+    box-shadow: none;
+    border-radius: none;
+}
+
+.action-icon {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 0;
 }
