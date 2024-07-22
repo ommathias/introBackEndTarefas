@@ -34,20 +34,18 @@ public class ProdutoController {
 //    }
 
 
-    @GetMapping("/produtos")  //Endpoint
-    public String listarProdutos(Model model) {  //método
+    @GetMapping ("/produtos")
+    public String listarProdutos(Model model, @RequestParam(required = false) String sucesso) {
+        model.addAttribute("produtos", produtoService.listAll());
+        model.addAttribute("sucesso", sucesso);
+        return "produtos";
+        }
 
-        List<Produto> produtos = produtoService.listAll();
-        model.addAttribute("produtos", produtos);  // "produtos" no Thymeleaf '${produtos}'
-        return "produtos";                                     // Retorna o nome da view (produtos.html) que deve ser renderizada
-
-    }
 
 
     // Endpoint para mostrar o formulário de adicionar produto
     @GetMapping("/produtos/adicionar")
     public String mostrarFormularioAdicionarProduto() {
-
         return "adicionar-produto"; // Retorna o nome da view (adicionar-produto.html) que deve ser renderizada
     }
 
@@ -56,15 +54,6 @@ public class ProdutoController {
     @PostMapping("/produtos")
     public String adicionarProduto(@RequestParam String nome, @RequestParam Double preco, RedirectAttributes redirectAttributes) {
 
-        if (nome == null || nome.trim().isEmpty()) {
-            redirectAttributes.addFlashAttribute("erro", "O nome do produto não pode ser vazio.");
-            return "redirect:/produtos/adicionar";
-        }
-
-        if (preco == null || preco <= 0) {
-            redirectAttributes.addFlashAttribute("erro", "O preço do produto deve ser maior que zero.");
-            return "redirect:/produtos/adicionar";
-        }
 
         try {
             produtoService.add(nome, preco);
