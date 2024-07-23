@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Lista de Produtos</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+	<h1>Lista de Produtos</h1>
+</header>
+<div th:if="${sucesso}" class="success-message">
+	<p th:text="${sucesso}"></p>
+</div>
+<div th:if="${erro}" class="error-message">
+	<p th:text="${erro}"></p>
+</div>
+<table>
+	<thead>
+	<tr>
+		<th>ID</th>
+		<th>Nome</th>
+		<th>Preço</th>
+		<th>Ações</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr th:each="produto : ${produtos}">
+		<td th:text="${produto.id}"></td>
+		<td th:text="${produto.nome}"></td>
+		<td th:text="${produto.preco}"></td>
+		<td>
+			<a th:href="@{'/produtos/editar?id=' + ${produto.id}}" title="Editar" class="editar">
+				<img src="icons/edit-icon.png" alt="Editar" width="20" height="20">
+			</a>
+			<form th:action="@{'/produtos/deletar'}" method="post" class="delete-link" onsubmit="return confirm('Tem certeza que deseja deletar este produto?');">
+				<input type="hidden" name="id" th:value="${produto.id}">
+				<button type="submit" class="action-icon" width="10px">Deletar</button>
+			</form>
+		</td>
+	</tr>
+	</tbody>
+</table>
+<div class="button-container">
+	<a th:href="@{/produtos/adicionar}" class="button">Adicionar Novo Produto</a>
+</div>
+</body>
+</html>
