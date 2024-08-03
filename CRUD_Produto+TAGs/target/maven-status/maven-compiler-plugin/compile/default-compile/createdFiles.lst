@@ -1,0 +1,4 @@
+br/ufg/inf/backend/spring/ProjetoSpringApplication.class
+br/ufg/inf/backend/spring/ServletInitializer.class
+br/ufg/inf/backend/spring/controller/ProdutoController.class
+br/ufg/inf/backend/spring/model/Produto.class
